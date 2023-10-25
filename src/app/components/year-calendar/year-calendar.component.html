@@ -1,0 +1,34 @@
+<div class="container">
+<div class="justify-content">
+
+
+<div class="form-group">
+    <label class="form-label">Select Year</label>
+    <select id="yearsdropdown" [(ngModel)]="selectedYear" (change)="renderSelectedYear(selectedYear)">
+      <option *ngFor="let y of yearsArray" value="{{y}}">{{y}}</option>
+    </select>
+  </div>
+  <div class="h-days-personalCalendar calendar_4_month">
+  <div class="table_wrap">
+    <div class="table">
+      <div class="thead">
+        <div class="tr">
+          <div class="firstCell">&nbsp;</div>
+          <div class="th mobileKeep" *ngFor='let weekDay of weeknames'>
+            <span>{{weekDay}}</span>
+          </div>
+
+        </div>
+      </div>
+      <div class="tbody">
+         <div class="tr" *ngFor="let mo of months">
+           <div class="td monthName" > <span>{{mo.monthname}}</span></div>
+           <div class="td" *ngFor="let dat of mo.datesarray" attr.data-dayref="{{dat.stringDate}}"><div class="cellWrapper"><div class="abs  in1 inherited tl" [ngClass]="{'working_day':!dat.isWeekEnd}"  data-level="1"></div><div class="dayNum">{{dat.idatename}}</div></div></div>
+           
+         </div>
+      </div>
+      </div>
+    </div>
+</div>
+</div>    
+</div>

@@ -1,0 +1,629 @@
+
+/* Rota Manager */
+#rota_calendar_actions .actions .action a {
+    background: #fff;
+}
+#rota_calendar_actions .actions .action a:hover {
+    background: #f26725;
+}
+.table_wrap {
+    margin-top: 10px;
+    display: inline-block;
+    width: 100%;
+    font-family: Arial,Verdana,"sans serif";
+    font-size: 12px;
+}
+
+    .table_wrap div.abs, .table_wrap div.dayNum {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding-top: 10px;
+        height: 20px;
+        display: block;
+    }
+
+    .table_wrap div.working_day {
+        background-color:#fff;
+    }
+
+    .table_wrap .table .td,
+    .table_wrap .table .th {
+        position: relative;
+        text-align: center;
+        padding: 10px 0;
+        width: 2.49%;
+        border: 1px solid #a6a6a6;
+        border-top: 0;
+        border-left: 0;
+        text-transform: uppercase;
+        background: #ccc;
+    }
+
+    .table_wrap .th:first-of-type {
+        border-top-left-radius: 4px;
+    }
+
+    .table_wrap .th:last-of-type {
+        border-top-right-radius: 4px;
+    }
+
+    .table_wrap .tr:last-of-type .td.monthName {
+        border-bottom-left-radius: 4px;
+    }
+
+    .table_wrap .tr:last-of-type .td.lastDay:last-of-type {
+        border-bottom-right-radius: 4px;
+    }
+
+    .table_wrap .table .firstCell,
+    .table_wrap .table .monthName {
+        width: 4.5%;
+        background: #f0f0f0 !important;
+        border-left: 1px solid #BCC1C2 !important;
+        font-weight: bold;
+    }
+
+    .table_wrap .table .td[data-dayref] {
+        cursor: pointer;
+        text-transform: none;
+        background: #ffffff;
+        padding: 10px 0;
+    }
+
+    .table_wrap .table .td.disabled {
+        cursor: default;
+        border-left-color: #a6a6a6;
+        border-right-color: #a6a6a6;
+    }
+
+    .table_wrap .table .td.lastDay {
+        border-right: 1px solid #d0d1d2;
+    }
+
+.dayData_container > h2, h2.abs_type, h2.new_time_off {
+    background:none;
+    padding-left:50px;
+    margin-top:10px;
+    text-transform:none;
+}
+
+.dayTimelineTimes
+{
+    position:relative;
+    font-size:9px; 
+    height:15px;
+    margin-left:31px;
+}
+
+.h-days-personalCalendarDashboard .dayTimelineTimes {
+    margin-left: 11px;
+}
+
+.dayTimelineTimes div {
+    position: absolute;
+    width: 31px;
+    height: 24px;
+    text-align: center;
+    font-size: 11px;
+    color: #4D4D4D;
+    margin: -2px 0 0 -15px;
+    background-position: center;
+    background-position-y: 12px;
+}
+
+.dayTimelineTimesBottom div 
+{
+    position: absolute;
+    width: 31px;
+    height: 12px;
+    text-align: center;
+    font-size: 11px;
+    color: #4D4D4D;
+    margin: 30px 0 0 30px;
+    padding: 0;
+    background-position: center;
+    background-position-y: -26px;
+}
+
+.h-days-personalCalendarDashboard .dayTimelineTimesBottom div {
+    margin: 30px 0 0 10px;
+}
+
+.dayTimeline {
+    background-color: #e6e6e6;
+    border: 1px solid #cccccc;
+    position: relative;
+    height: 28px;
+    float: left;
+    margin-left: 20px;
+}
+
+.h-days-personalCalendarDashboard .dayTimeline {
+    margin-left: 0;
+}
+
+.h-days-groupCalendar .dayTimeline {
+    background-color: #fff;
+}
+
+.tl_block {
+    top: 0;
+    bottom: 0;
+    position: absolute !important;
+    background-color: #fff;
+    width: 4.16666%;
+    cursor: pointer;
+}
+
+.off_day .tl_block,
+.off_day_mdc .tl_block {
+    background-color: #D3D3D3;
+}
+
+
+
+.calEventArrow {
+    border: 6px solid white;
+    content: '';
+    position: absolute;
+    border-top-color: black;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: black;
+    top: 0px;
+    cursor: pointer;
+}
+
+.merge .tl_block {
+    z-index: 1;
+    padding-left: 1px;
+}
+
+.tl_block.block_type_0 {
+    background-color: #1776CF;
+}
+
+.tl_block.block_type_1000 {
+    background-color: #1776CF;
+}
+
+.tl_block.pending {
+    background-color: #51b8cf;
+    background-repeat: repeat;
+}
+.day[data-weekday="1"] .tl_block {
+    background-position: 0 0 !important;
+}
+.day[data-weekday="2"] .tl_block.pending {
+    background-position: 0 3px !important;
+}
+.day[data-weekday="3"] .tl_block.pending {
+    background-position: 0 1px !important;
+}
+.day[data-weekday="4"] .tl_block.pending {
+    background-position: 0 -1px !important;
+}
+.day[data-weekday="5"] .tl_block.pending {
+    background-position: 0 2px !important;
+}
+/*.day.merge + .day.abs .tl_block {
+    background-position: 0 0 !important;
+}*/
+/*
+.day.abs .tl_block.pending {
+    background-position: 0 0px;
+}
+.day.abs.merge .tl_block.pending {
+    background-position: 0 0px;
+}
+.day.abs.merge:nth-of-type(even) + .day + .day .tl_block.pending {
+    background-position: 0 1px;
+}
+.day.abs.merge:nth-of-type(odd) + .day + .day .tl_block.pending {
+    background-position: 0 3px;
+}*/
+/*
+.table_wrap .weekend.block_type_0[data-type="0"], .staff_member_day_wrapper .block_type_0[data-type="0"] {
+    width:100% !important;
+}
+    */
+
+.dayTimeline .tl_block {
+    cursor:pointer;
+}
+            
+
+
+.tl_block.ui-draggable.ui-draggable-dragging, .tl_block.ui-draggable:hover {
+    cursor: move;
+}
+
+/*table.dataTable .ql_view {
+    width:120px !important;
+}*/
+
+
+.temp_timeline_row .td {
+    width: 98.9% !important;
+    height: auto !important;
+    background-color: #fff !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+h2.abs_type, h2.new_time_off {
+    margin-bottom:0;
+}
+
+.times_wrapper {
+    margin: 0 5px 0 0;
+    padding: 6px 5px 9px 5px;
+    float:left;
+}
+
+.block_info h2 {
+    margin-left: 20px;
+}
+
+.times_wrapper div {
+    float:left;
+    margin-right:5px;
+}
+    
+.times_wrapper div.time_wrapper {
+    width: 50px;
+}
+
+.times_wrapper div.duration_wrapper {
+    width:150px;
+}
+
+.times_wrapper div input[type=text], .times_wrapper div input[type=time] {
+    padding: 7px 5px 6px !important;
+    background: #f6f6ee;
+    border: 1px solid #aeb0b7;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box;
+}
+
+.times_wrapper div input[type=time] {
+    padding: 4px !important;
+    width: 72px !important;
+}
+
+.times_wrapper div label {
+    padding: 4px 0px 10px 0 !important;
+}
+.times_wrapper .buttonBlue {
+    margin-top: 32px !important;
+    float: left;
+}
+.times_wrapper .buttonRed {
+    margin-top: 26px !important;
+    float: left;
+}
+.custom_day_parts .times_wrapper .button {
+    margin-top: 44px !important;
+    float: left;
+}
+
+.custom_day_parts .dayTimelineTimes {
+    margin-top: 15px;
+}
+
+#timeline_wrapper {
+    display: none;
+    position: relative;
+    margin-left: 10px;
+    float: left;
+    width: 1140px;
+}
+
+#timeline_wrapper .dayData_container {
+    position:relative;
+    margin-right: 2px;
+}
+#personal_calendar_wrapper .dayData_container,
+.h-days-personalCalendar .dayData_container {
+    border:none;
+    text-align:left;
+    text-transform:none;
+}
+#personal_calendar_wrapper .td,
+.h-days-personalCalendar .td {
+    float: left;
+    height: 10px;
+    box-sizing: initial;
+}
+#personal_calendar_wrapper .tl_block,
+#personal_calendar_wrapper .working_day,
+.h-days-personalCalendar .tl_block,
+.h-days-personalCalendar .working_day {
+    /*background-color:#c5c5c5;*/
+    box-shadow:none !important;
+}
+
+#personal_calendar_wrapper .calEventArrow,
+.h-days-personalCalendar .calEventArrow {
+    border: 6px solid white;
+    content: '';
+    position: absolute;
+    border-top-color: black;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: black;
+    top: 0px;
+}
+
+#personal_calendar_wrapper .abs, 
+#personal_calendar_wrapper .off_day,
+.h-days-personalCalendar .off_day {
+    background-color: #e9e9e9;
+}
+
+#personal_calendar_wrapper .abs.working_day {
+    background: #fff;
+}
+    #personal_calendar_wrapper .abs.highlight {
+        box-shadow: 0px 0px 8px 2px #1776CF !important;
+        z-index: 1;
+        outline: 2px solid #1776cf;
+        border-radius: 2px;
+    }
+    .staff_record_page #personal_calendar_wrapper .abs.highlight {
+        box-shadow: 0px 0px 8px 2px #26808c !important;
+        outline: 2px solid #26808c;
+    }
+
+#personal_calendar_wrapper .abs.highlight + .dayNum {
+    z-index: 2;
+}
+
+
+.calendar_4_month .table .tr .th:nth-of-type(7n+1),
+.calendar_4_month .table .tr .th:nth-of-type(7n+2){
+    background: #dedede;
+}
+.calendar_4_month .table .tr .td:nth-of-type(7n+1),
+.calendar_4_month .table .tr .td:nth-of-type(7n+2){
+    background: #dedede;
+    cursor: not-allowed;
+}
+#personal_calendar_wrapper h2,
+.h-days-personalCalendar h2 {
+    float:none;
+    margin-top:0;
+    font-size: 19px;
+    color: #4d4d4d;
+    margin-bottom: 6px;
+}
+
+.calendar_4_month .table .tr .th,
+.h-days-personalCalendar .table .tr .th {
+    border: none;
+    font-size: 11px;
+    background-color: #fff;
+    border-right: 1px solid #BCC1C2;
+    border-bottom: 2px solid #A6A6A6;
+    border-top: 1px solid #BCC1C2;
+    text-transform: uppercase;
+    font-weight: bold;
+    float: left;
+}
+.calendar_4_month .table .tr .firstCell,
+.h-days-personalCalendar .table .tr .firstCell {
+    border: none;
+    font-size: 11px;
+    background-color: #fff;
+    border-right: 1px solid #BCC1C2;
+    border-bottom: 2px solid #A6A6A6;
+    border-top: 1px solid #BCC1C2;
+    text-transform: uppercase;
+    font-weight: bold;
+    float: left;
+    padding: 10px 0;
+}
+    .calendar_4_month .table .tr .th.weekend,
+    .h-days-personalCalendar .table .tr .th.weekend {
+        background-color: #e9e9e9;
+    }
+.calendar_4_month .table .tr .td.weekend,
+.calendar_4_month .table .tr .td.disabled,
+.h-days-personalCalendar .table .tr .td.weekend,
+.h-days-personalCalendar .table .tr .td.disabled {
+    background-color: #D0D1D2;
+}
+.calendar_4_month .table .tr .th,
+.calendar_4_month .table .tr .td
+.h-days-personalCalendar .table .tr .th,
+.h-days-personalCalendar .table .tr .td {
+    text-align: center;
+}
+.calendar_4_month .td.holiday,
+.h-days-personalCalendar .td.holiday {
+    background-color: #51b8cf;
+    border: 2px solid #26a6c3;
+    color:#ffffff;
+}
+.calendar_4_month .td.sickness,
+.h-days-personalCalendar .td.sickness {
+    background-color:#ca4d58;
+    border: 2px solid #bd202e;
+    color:#ffffff;
+}
+#personal_calendar_wrapper .tr, 
+.h-days-personalCalendar .tr {
+    clear: both;
+    display: flex;
+}
+
+
+#timeline_wrapper a.close {
+    background-color: #D0D1D2;
+    border-radius: 4px;
+    color: #666677;
+    display: block;
+    font-weight: bold;
+    padding: 2px 5px;
+
+}
+
+#timeline_wrapper a.close.day_display {
+
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+#timeline_wrapper a.close.timeline {
+    margin:5px;
+    float:left;
+}
+
+#timeline_wrapper .tl_block.selected {
+    height: 100% !important;
+}
+
+    .dayTimeline .tl_block.selected {
+        height: 100% !important;
+
+    }
+    #timeline_wrapper .timeline_left_wrapper {
+        float:left;
+        margin-right:0;
+        margin-top:0;
+    }
+    #timeline_wrapper .remove_block{
+        margin-right:10px;
+    }
+    #timeline_wrapper h2 {
+        float: none;
+        font-size: 19px;
+        color: #4d4d4d;
+        margin:5px 0 20px 0;
+        background: none;
+        border: 0;
+        padding: 0;
+    }
+    #timeline_wrapper h2.abs_type {
+       margin:12px 0 0 5px;
+
+    }
+    #rotaWrapper .timeline_left_wrapper {
+        margin-top:6px;
+    }
+    #rotaWrapper .abs, #rotaWrapper .off_day {
+        background: #EBEBEB;
+    }
+    #rotaWrapper .abs.working_day {
+        background: #fff;
+    }
+#formWrapper h2.new_time_off, #formWrapper h2.abs_type {
+    margin-bottom: 0;
+    padding-bottom: 4px;
+    text-indent: 5px;
+    display:block;
+}
+.dayData_container {
+    float: left;
+    width: 100%;
+    margin: 15px 0 15px 0;
+}
+@media screen and (max-width: 1259px) {
+    #formWrapper h2.abs_type {
+        clear: both;
+        float: left;
+        margin: 10px 0 0 0;
+    }
+    .times_wrapper {
+        margin-left: 0;
+    }
+    #formWrapper .times_wrapper label {
+        margin-left: 0;
+    }
+    .times_wrapper .button {
+        margin-top:  20px !important;
+    }
+}
+@media screen and (max-width: 599px) {
+    #timeline_wrapper {display:none !important;}
+}
+@media screen and (max-width: 1265px) {
+    h2.abs_type {
+        float: left;
+        margin-top: 5px;
+    }
+
+    .table_wrap .table .td,
+    .table_wrap .table .th {
+        width: 23.4px;
+    }
+
+    .table_wrap .table .td.monthName,
+    .table_wrap .table .th.firstCell {
+        width: 40px;
+    }
+
+    #timeline_wrapper {
+        width: 904px;
+    }
+}
+@media screen and (min-width: 1265px) {
+    .times_wrapper {
+        width: 283px;
+    }
+
+    .h-days-personalCalendarDashboard .times_wrapper {
+        width: 340px;
+    }
+}
+
+.info_timeline
+{
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    padding-bottom:35px;
+    background-position: center bottom;
+}
+
+.dayData_container span {
+        font-size: 18px;
+        color: #4d4d4d;
+        margin: 0;
+        padding: 5px 0 3px 5px;
+}
+
+.dayData_container span.dtitle {
+    display:inline-block;
+    padding: 0 0 40px 0;
+}
+
+.inheritance_wrapper
+{
+    margin-top: -20px;
+}
+
+#timeline_wrapper .buttonCoral 
+{
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.inheritance_wrapper a
+{
+    margin-bottom: 10px;
+}
+
+
+
+input[type="time"].nocross::-webkit-clear-button { /* Removes blue cross */
+  -webkit-appearance: none;
+  margin: 0;
+}
